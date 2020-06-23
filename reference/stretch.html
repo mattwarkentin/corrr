@@ -160,7 +160,12 @@ to a correlation data frame. It will gather the columns into a long-format
 data frame. The rowname column is handled automatically.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://corrr.tidymodels.org/reference/stretch.html'>stretch</a></span>(<span class='kw'>x</span>, na.rm = <span class='fl'>FALSE</span>, remove.dups = <span class='fl'>FALSE</span>, keep.order = <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://corrr.tidymodels.org/reference/stretch.html'>stretch</a></span>(
+  <span class='kw'>x</span>,
+  na.rm = <span class='fl'>FALSE</span>,
+  remove.dups = <span class='fl'>FALSE</span>,
+  .order = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"default"</span>, <span class='st'>"alphabet"</span>)
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -180,8 +185,10 @@ mirror is FALSE.</p></td>
       <td><p>Removes duplicate entries, without removing all NAs</p></td>
     </tr>
     <tr>
-      <th>keep.order</th>
-      <td><p>Boolean. Should x and y variables keep the same order as the columns in <code>x</code>? Default is <code>TRUE</code>.</p></td>
+      <th>.order</th>
+      <td><p>Either "default", meaning x and y variables keep the same order
+as the columns in <code>x</code>, or "alphabet", meaning the variables are
+alphabetized.</p></td>
     </tr>
     </table>
 
