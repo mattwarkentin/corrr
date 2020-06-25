@@ -160,12 +160,7 @@ to a correlation data frame. It will gather the columns into a long-format
 data frame. The rowname column is handled automatically.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://corrr.tidymodels.org/reference/stretch.html'>stretch</a></span>(
-  <span class='kw'>x</span>,
-  na.rm = <span class='fl'>FALSE</span>,
-  remove.dups = <span class='fl'>FALSE</span>,
-  .order = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"default"</span>, <span class='st'>"alphabet"</span>)
-)</pre>
+    <pre class="usage"><span class='fu'><a href='https://corrr.tidymodels.org/reference/stretch.html'>stretch</a></span>(<span class='kw'>x</span>, na.rm = <span class='fl'>FALSE</span>, remove.dups = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -184,12 +179,6 @@ mirror is FALSE.</p></td>
       <th>remove.dups</th>
       <td><p>Removes duplicate entries, without removing all NAs</p></td>
     </tr>
-    <tr>
-      <th>.order</th>
-      <td><p>Either "default", meaning x and y variables keep the same order
-as the columns in <code>x</code>, or "alphabet", meaning the variables are
-alphabetized.</p></td>
-    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -201,7 +190,7 @@ alphabetized.</p></td>
 #&gt; <span class='message'>Correlation method: 'pearson'</span>
 #&gt; <span class='message'>Missing treated using: 'pairwise.complete.obs'</span></div><div class='input'><span class='fu'><a href='https://corrr.tidymodels.org/reference/stretch.html'>stretch</a></span>(<span class='kw'>x</span>)  <span class='co'># Convert all to long format</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 121 x 3</span><span>
 #&gt;    x     y          r
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> mpg   mpg   </span><span style='color: #BB0000;'>NA</span><span>    
 #&gt; </span><span style='color: #555555;'> 2</span><span> mpg   cyl   -</span><span style='color: #BB0000;'>0.852</span><span>
 #&gt; </span><span style='color: #555555;'> 3</span><span> mpg   disp  -</span><span style='color: #BB0000;'>0.848</span><span>
@@ -214,7 +203,7 @@ alphabetized.</p></td>
 #&gt; </span><span style='color: #555555;'>10</span><span> mpg   gear   0.480
 #&gt; </span><span style='color: #555555;'># … with 111 more rows</span><span></div><div class='input'><span class='fu'><a href='https://corrr.tidymodels.org/reference/stretch.html'>stretch</a></span>(<span class='kw'>x</span>, na.rm = <span class='fl'>FALSE</span>)  <span class='co'># omit NAs (diagonal in this case)</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 121 x 3</span><span>
 #&gt;    x     y          r
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> mpg   mpg   </span><span style='color: #BB0000;'>NA</span><span>    
 #&gt; </span><span style='color: #555555;'> 2</span><span> mpg   cyl   -</span><span style='color: #BB0000;'>0.852</span><span>
 #&gt; </span><span style='color: #555555;'> 3</span><span> mpg   disp  -</span><span style='color: #BB0000;'>0.848</span><span>
@@ -229,7 +218,7 @@ alphabetized.</p></td>
 <span class='kw'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://corrr.tidymodels.org/reference/shave.html'>shave</a></span>(<span class='kw'>x</span>)  <span class='co'># use shave to set upper triangle to NA and then...</span>
 <span class='fu'><a href='https://corrr.tidymodels.org/reference/stretch.html'>stretch</a></span>(<span class='kw'>x</span>, na.rm = <span class='fl'>FALSE</span>)  <span class='co'># omit all NAs, therefore keeping each</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 121 x 3</span><span>
 #&gt;    x     y          r
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> mpg   mpg   </span><span style='color: #BB0000;'>NA</span><span>    
 #&gt; </span><span style='color: #555555;'> 2</span><span> mpg   cyl   -</span><span style='color: #BB0000;'>0.852</span><span>
 #&gt; </span><span style='color: #555555;'> 3</span><span> mpg   disp  -</span><span style='color: #BB0000;'>0.848</span><span>
